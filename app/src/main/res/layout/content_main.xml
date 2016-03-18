@@ -11,4 +11,31 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.andresvil.retos.MainActivity"
     tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Activos"
+            android:id="@+id/buttonActivos"
+            android:background="#E94C2A"
+            android:textColor="@android:color/background_material_light"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Completados"
+            android:id="@+id/buttonCompletados"
+            android:background="#E94C2A"
+            android:textColor="@android:color/background_material_light"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
 </RelativeLayout>
