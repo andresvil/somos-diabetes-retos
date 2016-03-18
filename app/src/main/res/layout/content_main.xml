@@ -15,10 +15,11 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:id="@+id/linearLayout">
 
         <Button
             android:layout_width="150dp"
@@ -26,8 +27,10 @@
             android:text="Activos"
             android:id="@+id/buttonActivos"
             android:background="#E94C2A"
-            android:textColor="@android:color/background_material_light"
-            android:layout_marginRight="10dp" />
+            android:textColor="#FFFFFF"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:textSize="17sp"/>
 
         <Button
             android:layout_width="150dp"
@@ -35,7 +38,17 @@
             android:text="Completados"
             android:id="@+id/buttonCompletados"
             android:background="#E94C2A"
-            android:textColor="@android:color/background_material_light"
-            android:layout_marginLeft="10dp" />
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="10dp"
+            android:textAllCaps="false"
+            android:textSize="17sp"/>
     </LinearLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="20dp" />
+
 </RelativeLayout>
