@@ -17,17 +17,17 @@ import java.util.Locale;
 /**
  * Created by andresvil on 3/18/16.
  */
-public class RetosActivosAdapter extends ArrayAdapter {
+public class RetosAdapter extends ArrayAdapter {
 
     private List myList = new ArrayList();
 
-    public RetosActivosAdapter(Context context, int resource) {
+    public RetosAdapter(Context context, int resource) {
         super(context, resource);
     }
 
-    public void add(String unReto) {
-        myList.add(unReto);
-        super.add(unReto);
+    public void add(Reto reto) {
+        myList.add(reto);
+        super.add(reto);
     }
 
     static class ImgHolder
@@ -66,9 +66,11 @@ public class RetosActivosAdapter extends ArrayAdapter {
             holder = (ImgHolder) row.getTag();
         }
 
+        Reto reto = (Reto) getItem(position);
+
         // Set textviews for Pregunta & Respuesta
-        holder.RETO.setText(myList.get(position).toString());
-        holder.CHECK.setImageResource(R.drawable.inactivo);
+        holder.RETO.setText(reto.getRetoTexto());
+        holder.CHECK.setImageResource(reto.getImg_rsc());
 
         // Load font and set TextViews to that font
         AssetManager am = getContext().getApplicationContext().getAssets();

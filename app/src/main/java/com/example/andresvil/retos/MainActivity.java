@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Find buttons, textviews and listviews
         activosButton = (Button) findViewById(R.id.buttonActivos);
         completadosButton = (Button) findViewById(R.id.buttonCompletados);
         TextView activos = (TextView) findViewById(R.id.buttonActivos);
@@ -48,13 +49,14 @@ public class MainActivity extends AppCompatActivity {
         retosActivos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");
 
         // Create and set adapter to activosListview
-        RetosActivosAdapter adapter = new RetosActivosAdapter(getApplicationContext(), R.layout.retos_layout);
+        RetosAdapter adapter = new RetosAdapter(getApplicationContext(), R.layout.retos_layout);
         activosList.setAdapter(adapter);
 
-        // Add retosActivos to RetosActivosAdapter
+        // Add retosActivos to RetosAdapter
         for (int i = 0; i < retosActivos.size(); i++)
         {
-            adapter.add(retosActivos.get(i));
+            Reto r = new Reto(retosActivos.get(i), R.drawable.inactivo);
+            adapter.add(r);
         }
 
         // Populate Retos Completados List
@@ -67,13 +69,14 @@ public class MainActivity extends AppCompatActivity {
         retosCompletados.add("No tomar más de un refresco el día de hoy");
 
         // Create and set adapter to completadosListView
-        RetosCompletadosAdapter rcAdapter = new RetosCompletadosAdapter(getApplicationContext(), R.layout.retos_layout);
+        RetosAdapter rcAdapter = new RetosAdapter(getApplicationContext(), R.layout.retos_layout);
         completadosList.setAdapter(rcAdapter);
 
         // Add retosCompletados to RetosCompletadosAdapter
         for (int i = 0; i < retosCompletados.size(); i++)
         {
-            rcAdapter.add(retosCompletados.get(i));
+            Reto r = new Reto(retosCompletados.get(i), R.drawable.activo);
+            rcAdapter.add(r);
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
