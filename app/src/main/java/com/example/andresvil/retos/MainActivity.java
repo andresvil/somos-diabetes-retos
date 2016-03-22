@@ -10,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         activosList = (ListView) findViewById(R.id.activosListView);
         completadosList = (ListView) findViewById(R.id.completadosListView);
 
+        // Populate Retos Activos List
         ArrayList<String> retosActivos = new ArrayList<String>();
         retosActivos.add("Me están doliendo los pies en la última semana pero no veo " +
                 "cambio visible.");
@@ -47,14 +47,33 @@ public class MainActivity extends AppCompatActivity {
                 "cambio visible.");
         retosActivos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");
 
-        // Create and set adapter to listview
-        RetosAdapter adapter = new RetosAdapter(getApplicationContext(), R.layout.retos_layout);
+        // Create and set adapter to activosListview
+        RetosActivosAdapter adapter = new RetosActivosAdapter(getApplicationContext(), R.layout.retos_layout);
         activosList.setAdapter(adapter);
 
-        // Add retos to RetosAdapter
+        // Add retosActivos to RetosActivosAdapter
         for (int i = 0; i < retosActivos.size(); i++)
         {
             adapter.add(retosActivos.get(i));
+        }
+
+        // Populate Retos Completados List
+        ArrayList<String> retosCompletados = new ArrayList<String>();
+        retosCompletados.add("Tomar 2 litros de agua diario por una semana");
+        retosCompletados.add("Hacer 25 minutos o más de ejercicio cardiovascular un mínimo " +
+                "de 3 veces en una semana");
+        retosCompletados.add("Mantener mi nivel de glucosa abajo de 200 toda la semana");
+        retosCompletados.add("Salir a caminar 20 minutos después de desayunar");
+        retosCompletados.add("No tomar más de un refresco el día de hoy");
+
+        // Create and set adapter to completadosListView
+        RetosCompletadosAdapter rcAdapter = new RetosCompletadosAdapter(getApplicationContext(), R.layout.retos_layout);
+        completadosList.setAdapter(rcAdapter);
+
+        // Add retosCompletados to RetosCompletadosAdapter
+        for (int i = 0; i < retosCompletados.size(); i++)
+        {
+            rcAdapter.add(retosCompletados.get(i));
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

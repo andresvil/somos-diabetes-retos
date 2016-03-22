@@ -17,11 +17,11 @@ import java.util.Locale;
 /**
  * Created by andresvil on 3/18/16.
  */
-public class RetosAdapter extends ArrayAdapter {
+public class RetosActivosAdapter extends ArrayAdapter {
 
     private List myList = new ArrayList();
 
-    public RetosAdapter(Context context, int resource) {
+    public RetosActivosAdapter(Context context, int resource) {
         super(context, resource);
     }
 
