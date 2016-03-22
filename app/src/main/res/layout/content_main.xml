@@ -30,7 +30,10 @@
             android:textColor="#FFFFFF"
             android:layout_marginRight="10dp"
             android:textAllCaps="false"
-            android:textSize="17sp"/>
+            android:textSize="17sp"
+            android:enabled="false"
+            android:onClick="toRetosActivos"
+            android:alpha="1"/>
 
         <Button
             android:layout_width="150dp"
@@ -41,16 +44,30 @@
             android:textColor="#FFFFFF"
             android:layout_marginLeft="10dp"
             android:textAllCaps="false"
-            android:textSize="17sp"/>
+            android:textSize="17sp"
+            android:enabled="true"
+            android:onClick="toRetosCompletados"
+            android:alpha="0.5"/>
     </LinearLayout>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/activosListView"
         android:layout_below="@+id/linearLayout"
         android:layout_marginTop="20dp"
         android:dividerHeight="10sp"
-        android:divider="@android:color/transparent"/>
+        android:divider="@android:color/transparent"
+        android:visibility="visible" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/completadosListView"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="20dp"
+        android:dividerHeight="10sp"
+        android:divider="@android:color/transparent"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +20,11 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button activosButton;
+    Button completadosButton;
+    ListView activosList;
+    ListView completadosList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,26 +32,29 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        activosButton = (Button) findViewById(R.id.buttonActivos);
+        completadosButton = (Button) findViewById(R.id.buttonCompletados);
         TextView activos = (TextView) findViewById(R.id.buttonActivos);
         TextView completados = (TextView) findViewById(R.id.buttonCompletados);
-        ListView listView = (ListView) findViewById(R.id.listView);
+        activosList = (ListView) findViewById(R.id.activosListView);
+        completadosList = (ListView) findViewById(R.id.completadosListView);
 
-        ArrayList<String> retos = new ArrayList<String>();
-        retos.add("Me están doliendo los pies en la última semana pero no veo " +
+        ArrayList<String> retosActivos = new ArrayList<String>();
+        retosActivos.add("Me están doliendo los pies en la última semana pero no veo " +
                 "cambio visible.");
-        retos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");
-        retos.add("Me están doliendo los pies en la última semana pero no veo " +
+        retosActivos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");
+        retosActivos.add("Me están doliendo los pies en la última semana pero no veo " +
                 "cambio visible.");
-        retos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");
+        retosActivos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");
 
         // Create and set adapter to listview
         RetosAdapter adapter = new RetosAdapter(getApplicationContext(), R.layout.retos_layout);
-        listView.setAdapter(adapter);
+        activosList.setAdapter(adapter);
 
         // Add retos to RetosAdapter
-        for (int i = 0; i < retos.size(); i++)
+        for (int i = 0; i < retosActivos.size(); i++)
         {
-            adapter.add(retos.get(i));
+            adapter.add(retosActivos.get(i));
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -85,5 +94,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void toRetosCompletados(View view)
+    {
+        activosButton.setEnabled(true);
+        activosButton.setAlpha(0.5f);
+        completadosButton.setEnabled(false);
+        completadosButton.setAlpha(1);
+        activosList.setVisibility(View.INVISIBLE);
+        completadosList.setVisibility(View.VISIBLE);
+    }
+
+    public void toRetosActivos(View view)
+    {
+        activosButton.setEnabled(false);
+        activosButton.setAlpha(1);
+        completadosButton.setEnabled(true);
+        completadosButton.setAlpha(0.5f);
+        activosList.setVisibility(View.VISIBLE);
+        completadosList.setVisibility(View.INVISIBLE);
     }
 }
