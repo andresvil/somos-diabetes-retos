@@ -6,6 +6,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class AgregarRetos extends AppCompatActivity {
 
@@ -15,16 +18,31 @@ public class AgregarRetos extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_retos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ListView listView = (ListView) findViewById(R.id.retosDisponiblesListView);
+
+        // Populate Retos Disponibles List
+        ArrayList<String> retosDisponibles = new ArrayList<String>();
+        retosDisponibles.add("Hacer 30 minutos de ejercicio cardiovascular hoy");
+        retosDisponibles.add("Tomar pura agua el día de hoy");
+        retosDisponibles.add("Dormir más de 6 horas");
+        retosDisponibles.add("Tomar vitaminas y suplementos");
+        retosDisponibles.add("Hacer 30 minutos de ejercicio cardiovascular hoy");
+        retosDisponibles.add("Tomar pura agua el día de hoy");
+        retosDisponibles.add("Dormir más de 6 horas");
+        retosDisponibles.add("Tomar vitaminas y suplementos");
+
+        // Create and set adapter to activosListview
+        RetosAdapter adapter = new RetosAdapter(getApplicationContext(), R.layout.retos_layout);
+        listView.setAdapter(adapter);
+
+        // Add retosDisponibles to RetosAdapter
+        for (int i = 0; i < retosDisponibles.size(); i++)
+        {
+            Reto r = new Reto(retosDisponibles.get(i), R.drawable.activo);
+            adapter.add(r);
+        }
     }
 
 }
