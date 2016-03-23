@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Remove default title from ActionBar
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         // Find buttons, textviews and listviews
         activosButton = (Button) findViewById(R.id.buttonActivos);
         completadosButton = (Button) findViewById(R.id.buttonCompletados);
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         TextView completados = (TextView) findViewById(R.id.buttonCompletados);
         activosList = (ListView) findViewById(R.id.activosListView);
         completadosList = (ListView) findViewById(R.id.completadosListView);
+        TextView toolbarText = (TextView) findViewById(R.id.toolbar_title);
 
         // Populate Retos Activos List
         final ArrayList<String> retosActivos = new ArrayList<String>();
@@ -96,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         Typeface myFont = Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "AvenirLTStd-Roman_0.otf"));
         activos.setTypeface(myFont);
         completados.setTypeface(myFont);
+        toolbarText.setTypeface(myFont);
 
     }
 
