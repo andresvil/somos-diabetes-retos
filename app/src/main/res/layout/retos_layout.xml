@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:background="#EAEAEA"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:descendantFocusability="blocksDescendants">
 
     <TextView
         android:id="@+id/reto"

@@ -40,7 +40,7 @@ public class AgregarRetos extends AppCompatActivity {
         // Add retosDisponibles to RetosAdapter
         for (int i = 0; i < retosDisponibles.size(); i++)
         {
-            Reto r = new Reto(retosDisponibles.get(i), R.drawable.activo);
+            Reto r = new Reto(retosDisponibles.get(i), R.drawable.agregar_activo);
             adapter.add(r);
         }
     }

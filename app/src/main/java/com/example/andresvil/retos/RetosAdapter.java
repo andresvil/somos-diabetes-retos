@@ -3,6 +3,7 @@ package com.example.andresvil.retos;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class RetosAdapter extends ArrayAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         View row = convertView;
         ImgHolder holder;
 
@@ -65,6 +66,13 @@ public class RetosAdapter extends ArrayAdapter {
         {
             holder = (ImgHolder) row.getTag();
         }
+
+        row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("item clicked!", Integer.toString(position));
+            }
+        });
 
         Reto reto = (Reto) getItem(position);
 

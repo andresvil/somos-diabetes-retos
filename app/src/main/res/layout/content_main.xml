@@ -58,7 +58,8 @@
         android:layout_marginTop="20dp"
         android:dividerHeight="10sp"
         android:divider="@android:color/transparent"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:descendantFocusability="blocksDescendants"/>
 
     <ListView
         android:layout_width="wrap_content"
@@ -68,6 +69,7 @@
         android:layout_marginTop="20dp"
         android:dividerHeight="10sp"
         android:divider="@android:color/transparent"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:descendantFocusability="blocksDescendants"/>
 
 </RelativeLayout>

@@ -8,9 +8,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         completadosList = (ListView) findViewById(R.id.completadosListView);
 
         // Populate Retos Activos List
-        ArrayList<String> retosActivos = new ArrayList<String>();
+        final ArrayList<String> retosActivos = new ArrayList<String>();
         retosActivos.add("Me están doliendo los pies en la última semana pero no veo " +
                 "cambio visible.");
         retosActivos.add("He estado bajo de energía y he seguido la dieta, ¿Qué será?");

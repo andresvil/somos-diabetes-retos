@@ -20,6 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:dividerHeight="10sp"
-        android:divider="@android:color/transparent"/>
+        android:divider="@android:color/transparent"
+        android:descendantFocusability="blocksDescendants"/>
 
 </RelativeLayout>
